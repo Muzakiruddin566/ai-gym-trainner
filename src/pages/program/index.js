@@ -23,7 +23,7 @@ export default function ProgramPage() {
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <h1 className="text-2xl font-bold mb-4">{program?.name}</h1>
-      <WeekTabs programStructure={program.program_structure} />
+      <WeekTabs />
     </div>
 
 );

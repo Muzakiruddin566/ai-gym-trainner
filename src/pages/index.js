@@ -79,16 +79,16 @@ export default function Home() {
             },
         and so on
 }`;
-    const payload = {
-      prompt: programPrompt,
-    };
+    // const payload = {
+    //   prompt: programPrompt,
+    // };
     try {
-      const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/plan/generate`,
-        payload
-      );
-      const parsed = JSON.parse(response.data.result);
-      const generatedData = parsed[formData.programName];
+      // const response = await axios.post(
+      //   `${process.env.NEXT_PUBLIC_API_URL}/plan/generate`,
+      //   payload
+      // );
+      // const parsed = JSON.parse(response.data.result);
+      // const generatedData = parsed[formData.programName];
       const data = {
         name: "4-week Intermediate Level Hypertrophy & Strength Training",
         level: "intermediate",
@@ -106,215 +106,416 @@ export default function Home() {
           week1: {
             day1: {
               A: {
+                id: "week1-day1-A",
                 exercise1: "A1",
+                training_intensifiers: "superset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
               B: {
+                id: "week1-day1-B",
                 exercise2: "B1",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
             },
             day2: {
               A: {
+                id: "week1-day2-A",
                 exercise1: "A2",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
               B: {
+                id: "week1-day2-B",
                 exercise2: "B2",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
             },
             day3: {
               A: {
+                id: "week1-day3-A",
                 exercise1: "A3",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
               B: {
+                id: "week1-day3-B",
                 exercise2: "B3",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
             },
             day4: {
               A: {
+                id: "week1-day4-A",
                 exercise1: "A4",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
               B: {
+                id: "week1-day4-B",
                 exercise2: "B4",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
             },
             day5: {
               A: {
+                id: "week1-day5-A",
                 exercise1: "A5",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
               B: {
+                id: "week1-day5-B",
                 exercise2: "B5",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
             },
           },
           week2: {
             day1: {
               A: {
+                id: "week2-day1-A",
                 exercise1: "A6",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
               B: {
+                id: "week2-day1-B",
                 exercise2: "B6",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
             },
             day2: {
               A: {
+                id: "week2-day2-A",
                 exercise1: "A7",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
               B: {
+                id: "week2-day2-B",
                 exercise2: "B7",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
             },
             day3: {
               A: {
+                id: "week2-day3-A",
                 exercise1: "A8",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
               B: {
+                id: "week2-day3-B",
                 exercise2: "B8",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
             },
             day4: {
               A: {
+                id: "week2-day4-A",
                 exercise1: "A9",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
               B: {
+                id: "week2-day4-B",
                 exercise2: "B9",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
             },
             day5: {
               A: {
+                id: "week2-day5-A",
                 exercise1: "A10",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
               B: {
+                id: "week2-day5-B",
                 exercise2: "B10",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
             },
           },
           week3: {
             day1: {
               A: {
+                id: "week3-day1-A",
                 exercise1: "A11",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
               B: {
+                id: "week3-day1-B",
                 exercise2: "B11",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
             },
             day2: {
               A: {
+                id: "week3-day2-A",
                 exercise1: "A12",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
               B: {
+                id: "week3-day2-B",
                 exercise2: "B12",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
             },
             day3: {
               A: {
+                id: "week3-day3-A",
                 exercise1: "A13",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
               B: {
+                id: "week3-day3-B",
                 exercise2: "B13",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
             },
             day4: {
               A: {
+                id: "week3-day4-A",
                 exercise1: "A14",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
               B: {
+                id: "week3-day4-B",
                 exercise2: "B14",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
             },
             day5: {
               A: {
+                id: "week3-day5-A",
                 exercise1: "A15",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
               B: {
+                id: "week3-day5-B",
                 exercise2: "B15",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
             },
           },
           week4: {
             day1: {
               A: {
+                id: "week4-day1-A",
                 exercise1: "A16",
+                training_intensifiers: "superset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
               B: {
+                id: "week4-day1-B",
                 exercise2: "B16",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
             },
             day2: {
               A: {
+                id: "week4-day2-A",
                 exercise1: "A17",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
               B: {
+                id: "week4-day2-B",
                 exercise2: "B17",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
             },
             day3: {
               A: {
+                id: "week4-day3-A",
                 exercise1: "A18",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
               B: {
+                id: "week4-day3-B",
                 exercise2: "B18",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
             },
             day4: {
               A: {
+                id: "week4-day4-A",
                 exercise1: "A19",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
               B: {
+                id: "week4-day4-B",
                 exercise2: "B19",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
             },
             day5: {
               A: {
+                id: "week4-day5-A",
                 exercise1: "A20",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
               B: {
+                id: "week4-day5-B",
                 exercise2: "B20",
+                training_intensifiers: "regularset",
                 sets: 7,
+                reps: "12,10,8",
+                rest_time: "95,155,135",
+                note: "1-3-1 tempo",
               },
             },
           },
         },
       };
+      
       // setProgram(generatedData);
-      console.log(generatedData);
+      // console.log(generatedData);
       setProgram(data);
       router.push("/program");
     } catch (error) {
