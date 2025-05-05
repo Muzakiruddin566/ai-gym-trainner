@@ -10,6 +10,7 @@ import {
   MoreHorizontalIcon,
   Trash2Icon,
 } from "lucide-react";
+import { useProgramStore } from "@/stores/programStore";
 
 export default function DayCard({ dayKey, exercise, id }) {
   const {
@@ -19,9 +20,8 @@ export default function DayCard({ dayKey, exercise, id }) {
     transform,
     transition,
     isDragging,
-  } = useSortable({ id: `${dayKey}-${id}` });
+  } = useSortable({ id });
   
-  console.log({exercise : exercise});
 
   const style = {
     transform: CSS.Transform.toString(transform),
@@ -64,7 +64,7 @@ export default function DayCard({ dayKey, exercise, id }) {
 
         {/* Exercise Details */}
         <div className="bg-white rounded-[0px_0px_8px_8px] flex items-center w-full border border-solid border-[#f2f2f2] overflow-hidden">
-          <div className="w-[85px]">
+          {/* <div className="w-[85px]">
             <div className="justify-center p-4 border-r border-t border-[#f7f7f7] flex items-center">
               <span className="font-body-3-regular text-black text-[length:var(--body-3-regular-font-size)] tracking-[var(--body-3-regular-letter-spacing)] leading-[var(--body-3-regular-line-height)] [font-style:var(--body-3-regular-font-style)]">
               {Object.entries(exercise)
@@ -72,8 +72,8 @@ export default function DayCard({ dayKey, exercise, id }) {
   ?.[1] ?? id}
               </span>
             </div>
-          </div>
-          <div className="w-[212px]">
+          </div> */}
+          <div className="w-[300px]">
             <div className="p-4 border-r border-t border-[#f7f7f7] flex items-center">
               <span className="font-body-3-regular text-black text-[length:var(--body-3-regular-font-size)] tracking-[var(--body-3-regular-letter-spacing)] leading-[var(--body-3-regular-line-height)] [font-style:var(--body-3-regular-font-style)]">
                 {exercise?.name}
@@ -109,7 +109,7 @@ export default function DayCard({ dayKey, exercise, id }) {
             </div>
           </div>
           <div className="border-l border-[#f2f2f2]">
-            <div className="border-t border-r border-[#f7f7f7] flex h-[53px] items-center justify-center p-4">
+            <div className="border-t border-r border-[#f7f7f7] flex h-[53px] items-center justify-center p-4"  onClick={() => useProgramStore.getState().deleteExercise(exercise.id)}>
               <Trash2Icon className="w-5 h-5" />
             </div>
           </div>

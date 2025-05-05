@@ -13,7 +13,6 @@ import { PlusIcon } from "lucide-react";
 export default function WeekTabs() {
   const program = useProgramStore((state) => state.program);
   const programStructure = program?.program_structure;
-  console.log({ programStructure, program });
   const reorderExercises = useProgramStore((state) => state.reorderExercises);
   const [weekKeys, setWeekKeys] = useState(
     Object?.keys(program?.program_structure)
@@ -23,19 +22,20 @@ export default function WeekTabs() {
   const handleDragEnd = (event) => {
     const { active, over } = event;
     if (!over) return;
-
-    // Parse IDs: e.g. "day1-A"
-    const [activeDay, activeExercise] = active.id.split("-");
-    const [overDay, overExercise] = over.id.split("-");
-
+  
+    const [_, activeDay, activeExercise] = active.id.split("-");
+    const [__, overDay, overExercise] = over.id.split("-");
+  
+    const program = useProgramStore.getState().program;
+    const reorderExercises = useProgramStore.getState().reorderExercises;
+  
     if (activeDay === overDay) {
-      const exercisesObj = programStructure[activeWeek][activeDay];
+      const exercisesObj = program.program_structure[activeWeek][activeDay];
       const exerciseEntries = Object.entries(exercisesObj);
-      const oldIndex = exerciseEntries.findIndex(
-        ([k, v]) => v.id === active.id
-      );
-      const newIndex = exerciseEntries.findIndex(([k, v]) => v.id === over.id);
-
+  
+      const oldIndex = exerciseEntries.findIndex(([_, v]) => v.id === active.id);
+      const newIndex = exerciseEntries.findIndex(([_, v]) => v.id === over.id);
+  
       if (oldIndex !== -1 && newIndex !== -1) {
         const newEntries = arrayMove(exerciseEntries, oldIndex, newIndex);
         const newExercisesObj = Object.fromEntries(newEntries);
@@ -44,7 +44,20 @@ export default function WeekTabs() {
     }
   };
 
-  console.log({ weekKeys });
+  const handleAddExercise = (dayKey, exercises) => {
+    const newExercise = {
+      id: `${activeWeek}-${dayKey}-${Date.now().toString()}`,
+      name: "New Exercise",
+      sets: 3,
+      reps: 10,
+      restTime: 30,
+      notes: "",
+    };
+    exercises[newExercise.id] = newExercise;
+    reorderExercises(activeWeek, dayKey, exercises);
+  }
+
+
 
   return (
     <div>
@@ -69,10 +82,7 @@ export default function WeekTabs() {
           onDragEnd={handleDragEnd}
         >
           <SortableContext
-            // items={activeWeek.map((ex) => `${day.id}-${ex.id}`)}
-            items={Object.entries(programStructure[activeWeek]).map(
-              ([dayKey, exercises], index) => `${dayKey}-${index}`
-            )}
+           items={Object.entries(programStructure[activeWeek]).flatMap(([dayKey, exercises]) => Object.values(exercises).map(ex => ex.id))}          
             strategy={verticalListSortingStrategy}
           >
             {Object.entries(programStructure[activeWeek]).map(
@@ -131,6 +141,7 @@ export default function WeekTabs() {
                         variant="ghost"
                         size="sm"
                         className="flex items-center gap-1 text-purple"
+                        onClick={() => handleAddExercise(dayKey, exercises)}
                       >
                         <PlusIcon className="w-4 h-4" />
                         <span className="font-small-txt">Circuit</span>
